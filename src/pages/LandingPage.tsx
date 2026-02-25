@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.png";
-import { ArrowRight, Shield, Zap, Globe, QrCode, Wallet, TrendingUp } from "lucide-react";
+import { ArrowRight, Shield, Zap, Globe, QrCode, Wallet, TrendingUp, Smartphone, ScanLine, CreditCard, BarChart3, Link2, Code2, Receipt } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -192,6 +192,130 @@ export default function LandingPage() {
                 <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section id="how" className="py-24 border-t border-border/30">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display text-4xl font-bold mb-4">
+              How it Works
+            </h2>
+            <p className="text-muted-foreground max-w-lg mx-auto">
+              Three simple steps. No crypto expertise required.
+            </p>
+          </motion.div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                step: "01",
+                icon: Smartphone,
+                title: "Create Your Wallet",
+                description: "Sign up with email or social login. Your non-custodial wallet is generated instantly — no seed phrases to worry about.",
+              },
+              {
+                step: "02",
+                icon: CreditCard,
+                title: "Add Stablecoins",
+                description: "Deposit USDC from any exchange or receive payments directly. Your balance stays pegged to the US dollar.",
+              },
+              {
+                step: "03",
+                icon: ScanLine,
+                title: "Scan & Pay",
+                description: "Scan a merchant QR code, enter the amount, and confirm. Settlement is instant with fees under a cent.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.12 }}
+                className="relative text-center"
+              >
+                {i < 2 && (
+                  <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-px border-t border-dashed border-border/40" />
+                )}
+                <div className="mx-auto h-14 w-14 rounded-2xl glass glow-border flex items-center justify-center mb-5">
+                  <item.icon className="h-6 w-6 text-foreground" />
+                </div>
+                <span className="text-xs font-mono text-glow font-semibold tracking-wider">STEP {item.step}</span>
+                <h3 className="font-display font-semibold text-lg mt-2 mb-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Merchants */}
+      <section id="merchants" className="py-24 border-t border-border/30">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-xs text-muted-foreground font-medium">
+                For Business
+              </span>
+              <h2 className="font-display text-4xl font-bold leading-tight">
+                Accept stablecoin payments.
+                <br />
+                <span className="text-gradient-silver">Settle instantly.</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed max-w-md">
+                No chargebacks. No 3-day holds. Just instant settlement in USDC with a flat 0.3% fee.
+                Integrate with a single API call or use our hosted checkout.
+              </p>
+              <div className="flex gap-4 pt-2">
+                <Button size="lg" onClick={() => navigate("/dashboard")} className="gap-2">
+                  Start Accepting <ArrowRight className="h-4 w-4" />
+                </Button>
+                <Button variant="outline" size="lg">
+                  View API Docs
+                </Button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {[
+                { icon: Link2, title: "Payment Links", desc: "Generate shareable links for any amount" },
+                { icon: BarChart3, title: "Sales Analytics", desc: "Real-time revenue and transaction insights" },
+                { icon: Code2, title: "API & Webhooks", desc: "Stripe-style developer experience" },
+                { icon: Receipt, title: "Instant Settlement", desc: "Funds arrive in your wallet immediately" },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + i * 0.08 }}
+                  className="p-5 rounded-xl glass hover:glow-border transition-all duration-300"
+                >
+                  <div className="h-9 w-9 rounded-lg bg-accent flex items-center justify-center mb-3">
+                    <item.icon className="h-4 w-4 text-foreground" />
+                  </div>
+                  <h3 className="font-display font-semibold text-sm mb-1">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
