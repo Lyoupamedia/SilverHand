@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.png";
-import { ArrowRight, Shield, Zap, Globe, QrCode, Wallet, TrendingUp, Smartphone, ScanLine, CreditCard, BarChart3, Link2, Code2, Receipt } from "lucide-react";
+import { ArrowRight, Shield, Zap, Globe, QrCode, Wallet, TrendingUp, Smartphone, ScanLine, CreditCard, BarChart3, Link2, Code2, Receipt, Linkedin, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -69,6 +69,17 @@ export default function LandingPage() {
             <a href="#features" className="hover:text-foreground transition-colors">Features</a>
             <a href="#how" className="hover:text-foreground transition-colors">How it Works</a>
             <a href="#merchants" className="hover:text-foreground transition-colors">Merchants</a>
+            <div className="flex items-center gap-3 ml-2 border-l border-border/40 pl-4">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors" aria-label="LinkedIn">
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors" aria-label="Facebook">
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors" aria-label="Instagram">
+                <Instagram className="h-4 w-4" />
+              </a>
+            </div>
           </div>
           <Button variant="secondary" size="sm" onClick={() => navigate("/dashboard")}>
             Launch App
