@@ -229,6 +229,7 @@ export default function WalletDashboard() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
+          onClick={() => navigate("/merchant")}
           className="rounded-xl glass p-5 flex items-center gap-4 cursor-pointer hover:glow-border transition-all"
         >
           <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center shrink-0">
