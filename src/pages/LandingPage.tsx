@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.png";
+import logoImage from "@/assets/logo.png";
 import { ArrowRight, Shield, Zap, Globe, QrCode, Wallet, TrendingUp, Smartphone, ScanLine, CreditCard, BarChart3, Link2, Code2, Receipt, Linkedin, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -62,7 +63,7 @@ export default function LandingPage() {
       <nav className="fixed top-0 w-full z-50 glass-strong">
         <div className="container mx-auto flex items-center justify-between py-4 px-6">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg gradient-silver" />
+            <img src={logoImage} alt="SilverHand logo" className="h-8 w-8 rounded-lg object-cover" />
             <span className="font-display text-xl font-bold tracking-tight">SilverHand</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
@@ -427,7 +428,7 @@ export default function LandingPage() {
       <footer className="border-t border-border/30 py-12">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="h-6 w-6 rounded-md gradient-silver" />
+            <img src={logoImage} alt="SilverHand logo" className="h-6 w-6 rounded-md object-cover" />
             <span className="font-display font-semibold">SilverHand</span>
           </div>
           <p className="text-sm text-muted-foreground">
