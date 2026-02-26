@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-image.png";
-import { ArrowRight, Shield, Zap, Globe, QrCode, Wallet, TrendingUp, Smartphone, ScanLine, CreditCard, BarChart3, Link2, Code2, Receipt, Linkedin, Facebook, Instagram } from "lucide-react";
+import { ArrowRight, Shield, Zap, Globe, QrCode, Wallet, TrendingUp, Smartphone, ScanLine, CreditCard, BarChart3, Link2, Code2, Receipt, Linkedin, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -69,6 +69,7 @@ export default function LandingPage() {
             <a href="#features" className="hover:text-foreground transition-colors">Features</a>
             <a href="#how" className="hover:text-foreground transition-colors">How it Works</a>
             <a href="#merchants" className="hover:text-foreground transition-colors">Merchants</a>
+            <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
             <div className="flex items-center gap-3 ml-2 border-l border-border/40 pl-4">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors" aria-label="LinkedIn">
                 <Linkedin className="h-4 w-4" />
@@ -327,6 +328,75 @@ export default function LandingPage() {
                 </motion.div>
               ))}
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Us */}
+      <section id="contact" className="py-24 border-t border-border/30">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display text-4xl font-bold mb-4">Contact Us</h2>
+            <p className="text-muted-foreground max-w-lg mx-auto">
+              Have questions? We'd love to hear from you. Reach out and our team will get back to you shortly.
+            </p>
+          </motion.div>
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              {[
+                { icon: Mail, label: "Email", value: "hello@silverhand.io" },
+                { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
+                { icon: MapPin, label: "Location", value: "San Francisco, CA" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-start gap-4">
+                  <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center shrink-0">
+                    <item.icon className="h-5 w-5 text-foreground" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">{item.label}</p>
+                    <p className="font-medium">{item.value}</p>
+                  </div>
+                </div>
+              ))}
+              <div className="flex gap-4 pt-4">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors">
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors">
+                  <Facebook className="h-4 w-4" />
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg glass flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors">
+                  <Instagram className="h-4 w-4" />
+                </a>
+              </div>
+            </motion.div>
+            <motion.form
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <div className="grid grid-cols-2 gap-4">
+                <input type="text" placeholder="First Name" className="w-full px-4 py-3 rounded-lg glass bg-transparent border border-border/40 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-glow/50 transition-colors" />
+                <input type="text" placeholder="Last Name" className="w-full px-4 py-3 rounded-lg glass bg-transparent border border-border/40 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-glow/50 transition-colors" />
+              </div>
+              <input type="email" placeholder="Email Address" className="w-full px-4 py-3 rounded-lg glass bg-transparent border border-border/40 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-glow/50 transition-colors" />
+              <textarea placeholder="Your Message" rows={4} className="w-full px-4 py-3 rounded-lg glass bg-transparent border border-border/40 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-glow/50 transition-colors resize-none" />
+              <Button size="lg" className="w-full gap-2">
+                Send Message <ArrowRight className="h-4 w-4" />
+              </Button>
+            </motion.form>
           </div>
         </div>
       </section>
